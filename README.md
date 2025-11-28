@@ -99,6 +99,13 @@ abu create basic
 # 🎬 Demo Preview (Coming Soon)
 A command execution demo GIF/video will be added soon to showcase the tool in action.
 
+## 📦 NPM Package (Coming Soon)
+
+This CLI tool will soon be available as an npm global package.
+
+```bash
+npm install -g abu-cli
+```
 # 🤝 Contributing
 
 Want to improve or add new features?
