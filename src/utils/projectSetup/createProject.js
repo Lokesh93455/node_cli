@@ -3,9 +3,10 @@ const { log } = require("../logger");
 const fs=require("fs")
 
 function createProject(projectType) {
+
   log( `Creating project: ${projectType}`,"info");
 
-  const folders=PROJECT_STRUCTURES[projectType];
+  const folders=PROJECT_STRUCTURES[projectType.trim().toLowerCase()];
   
 
     if (!folders) {

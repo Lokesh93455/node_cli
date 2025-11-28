@@ -1,6 +1,7 @@
 // constants/projectStructures.js
+
 const PROJECT_STRUCTURES = {
-  basic: [
+  basic : [
     "src",
     "src/configs",
     "src/routes",
@@ -13,13 +14,17 @@ const PROJECT_STRUCTURES = {
   ],
 
   adapter: [
+
     "src",
     "src/configs",
+    "src/routes",
+    "src/models",
     "src/adapters",
-    "src/modules",
     "src/utils",
-    "src/middleware",
-    "src/infrastructure",
+    "src/middlewares",
+    "src/controllers",
+    "src/services",
+    "src/repos",
   ],
 
  
