@@ -1,5 +1,6 @@
 const { Command } = require("commander");
 const { createFileFromTemplate } = require("../utils/template");
+const { makeComponents } = require("../utils/makeComponents");
 
 const make = new Command("make");
 
@@ -27,5 +28,11 @@ make
   .command("repo <name>")
   .description("Create a repo file")
   .action((name) => createFileFromTemplate("repo", name));
+
+make
+  .command("source <name>")
+  .option("-s,--setup","Create full setup with code merge")
+  .description("Create multiple components(RMSC)")
+  .action((name,option) => makeComponents(name,option));
 
 module.exports = make;

@@ -10,10 +10,32 @@ function createFileFromTemplate(type,name){
         return log(`Template for ${type} not found`,"error");
 
     }
+
+
+
     const content =fs.readFileSync(templatePath,"utf-8")
-                     .replace(/<name>/g,name);
+                     .replace(/<name>/g,name.split("/").pop());
+
+    //breaks path into parts
+    const parts=name.split("/").filter(Boolean);
+
+    //file name is last element
+    const filename=parts.pop();
+
+    //create folder path dynamically
+    const folderPath=path.join("src",`${type}s`,...parts);
+
+    //ensure folder exists
+    if(!fs.existsSync(folderPath)){
+        fs.mkdirSync(folderPath,{recursive:true});
+        log(`Created folders: ${folderPath}`, "info");
+    };
+
                     
-    const outputFile=`src/${type}s/${name}.${type}.js`;
+    // const outputFile=`src/${type}s/${name}.${type}.js`;
+
+    //final file path
+    const outputFile=path.join(folderPath,`${filename}.${type}.js`);
 
     if(fs.existsSync(outputFile)){
         return log(`File already exists : ${outputFile}`,"warn")
@@ -21,6 +43,8 @@ function createFileFromTemplate(type,name){
 
     fs.writeFileSync(outputFile,content);
     log(`Created ${type}: ${outputFile}`,"success");
+
+    return true;
 }
 
 module.exports = { createFileFromTemplate };

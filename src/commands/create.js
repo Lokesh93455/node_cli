@@ -7,6 +7,7 @@ const { createDBConfig } = require("../utils/projectSetup/createDBConfig");
 const { createStarterFiles } = require("../utils/projectSetup/createStarterFiles");
 const { log } = require("../utils/logger");
 const { greet } = require("../utils/message");
+const { safeRun } = require("../utils/helper/safeRun");
 // const { createProject } = require("../utils/file");
 
 const create = new Command("create");
@@ -16,14 +17,19 @@ create
   .description("Create project structure")
   .action((type) => {
    try{
-     // createProject(type);
-    createProject(type);
-    initNodeProject();
-    installDefaultPackages();
-    createEnvFile();
-    createDBConfig();
-    createStarterFiles();
+    // createProject(type);
+    // initNodeProject();
+    // installDefaultPackages();
+    // createEnvFile();
+    // createDBConfig();
+    // createStarterFiles();
 
+     safeRun(() => createProject(type), "Project creation failed");
+     safeRun(() => initNodeProject(), "NPM init failed");
+     safeRun(() => installDefaultPackages(), "Package install failed");
+     safeRun(() => createEnvFile(), ".env creation failed");
+     safeRun(() => createDBConfig(), "DB config creation failed");
+     safeRun(() => createStarterFiles(), "Starter files creation failed");
     // --------------
     greet();
    }catch(error){

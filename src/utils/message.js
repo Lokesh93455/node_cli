@@ -6,4 +6,11 @@ log("😊 Happy Hacking..!! \n -by Abu","done")
     
 }
 
-module.exports={greet}
+function startMessage(projectName,){
+   log(`Run your project using below commands \n cd ${projectName} \n npm start `,'success')
+   log("😊 Happy Hacking..!! \n -by Abu","done")
+
+
+}
+
+module.exports={greet,startMessage}
