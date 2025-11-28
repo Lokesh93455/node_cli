@@ -32,14 +32,14 @@ Run the below command to generate project structure:
 ```bash
 abu create <folderType>
 ```
-#📂 Folder Types Available
+# 📂 Folder Types Available
 
 | Folder Type | Description                                          |
 | ----------- | ---------------------------------------------------- |
 | `basic`     | Minimal starter project                              |
 | `adapter`   | Advanced project structure with adapter architecture |
 
-#🛠 Generate Files Automatically
+# 🛠 Generate Files Automatically
 ```bash
 abu make <fileType> <name>
 ```
