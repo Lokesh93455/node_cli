@@ -111,7 +111,7 @@ npm install -g abu-cli
 Want to improve or add new features?
 Pull requests and suggestions are welcome!
 
-# ⭐ Support
+# ⭐ Support .
 
 If you found this helpful, please star the GitHub repository and support the project 🌟
 
